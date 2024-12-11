@@ -13,42 +13,42 @@ public class QuizTest {
     @Test
     public void testCalculateWaterBill() {
 
-        Quiz.currenrWaterMeter = 10;
-        Quiz.lastWaterMeter = 5;
-        int expectedWaterBill = (10 - 5) * 5;  
+        Quiz.currenrWaterMeter = 150;
+        Quiz.lastWaterMeter = 50;
+        int expectedWaterBill = (150 - 50) * 5;  
         int actualWaterBill = Quiz.calculateWaterBill();
 
-        assertEquals(expectedWaterBill,actualWaterBill);
+        assertEquals(expectedWaterBill,500);
         
     }
 
     @Test
     public void testCalculateElecBill() {
         
-        Quiz.currenrElecMeter = 20;
-        Quiz.lastElecMeter = 15;
+        Quiz.currenrElecMeter = 170;
+        Quiz.lastElecMeter = 100;
 
-        int expectedElecBill = (20 - 15) * 6;  // 5 * 6 = 30
+        int expectedElecBill = (170 - 100) * 6;  
         int actualElecBill = Quiz.calculateElecBill();
 
     
-        assertEquals(expectedElecBill, actualElecBill);
+        assertEquals(expectedElecBill, 420);
     }
 
 
     @Test
     public void totalBillWaterAndElec() {
-        Quiz.currenrWaterMeter = 10;
-        Quiz.lastWaterMeter = 5;
-        Quiz.currenrElecMeter = 20;
-        Quiz.lastElecMeter = 15;
+        Quiz.currenrWaterMeter = 150;
+        Quiz.lastWaterMeter = 50;
+        Quiz.currenrElecMeter = 170;
+        Quiz.lastElecMeter = 100;
 
         
-        int expectedWaterBill = (10 - 5) * 5;  
-        int expectedElecBill = (20 - 15) * 6;  
+        int expectedWaterBill = (150 - 50) * 5;  
+        int expectedElecBill = (170 - 100) * 6;  
         int expectedTotalBill = expectedWaterBill + expectedElecBill;
         
-        assertEquals(expectedTotalBill,55);
+        assertEquals(expectedTotalBill,920);
         
         
     }
@@ -58,28 +58,27 @@ public class QuizTest {
     @Test
     public void testCalculateResultBillSingle() {
        
-        Quiz.currenrWaterMeter = 10;
-        Quiz.lastWaterMeter = 5;
-        Quiz.currenrElecMeter = 20;
-        Quiz.lastElecMeter = 15;
+        Quiz.currenrWaterMeter = 150;
+        Quiz.lastWaterMeter = 50;
+        Quiz.currenrElecMeter = 170;
+        Quiz.lastElecMeter = 100;
 
-        int expectedResultBill = 1500 + (5 * 5) + (5 * 6);
+        int expectedResultBill = 1500 + (100 * 5) + (70 * 6);
         int actualResultBill = Quiz.calculateResultBill("S");
 
-        assertEquals(expectedResultBill, actualResultBill);
+        assertEquals(expectedResultBill, 2420);
     }
 
     @Test
     public void testCalculateResultBillDouble() {
 
-        Quiz.currenrWaterMeter = 10;
-        Quiz.lastWaterMeter = 5;
-        Quiz.currenrElecMeter = 20;
-        Quiz.lastElecMeter = 15;
-
-        int expectedResultBill = 2000 + (5 * 5) + (5 * 6); 
+        Quiz.currenrWaterMeter = 150;
+        Quiz.lastWaterMeter = 50;
+        Quiz.currenrElecMeter = 170;
+        Quiz.lastElecMeter = 100;
+ 
         int actualResultBill = Quiz.calculateResultBill("D");
 
-        assertEquals(expectedResultBill, actualResultBill);
+        assertEquals(actualResultBill, 2920);
     }
 }
