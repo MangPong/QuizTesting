@@ -15,10 +15,10 @@ public class QuizTest {
 
         Quiz.currenrWaterMeter = 150;
         Quiz.lastWaterMeter = 50;
-        int expectedWaterBill = (150 - 50) * 5;  
+        
         int actualWaterBill = Quiz.calculateWaterBill();
 
-        assertEquals(expectedWaterBill,500);
+        assertEquals(actualWaterBill,500);
         
     }
 
@@ -27,12 +27,11 @@ public class QuizTest {
         
         Quiz.currenrElecMeter = 170;
         Quiz.lastElecMeter = 100;
-
-        int expectedElecBill = (170 - 100) * 6;  
+ 
         int actualElecBill = Quiz.calculateElecBill();
 
     
-        assertEquals(expectedElecBill, 420);
+        assertEquals(actualElecBill, 420);
     }
 
 
@@ -63,10 +62,10 @@ public class QuizTest {
         Quiz.currenrElecMeter = 170;
         Quiz.lastElecMeter = 100;
 
-        int expectedResultBill = 1500 + (100 * 5) + (70 * 6);
+        
         int actualResultBill = Quiz.calculateResultBill("S");
 
-        assertEquals(expectedResultBill, 2420);
+        assertEquals(actualResultBill, 2420);
     }
 
     @Test
